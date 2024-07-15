@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Calculator {
-    private List<Double> resultList =new ArrayList<Double>();
+    private final List<Double> resultList ;
+
+    Calculator(ArrayList<Double> resultList){
+        this.resultList =resultList;
+    }
 
     public List<Double> getResultList() {
         // return resultList; 기존 코드시 컬렉션이 변경되는 위험이 있어 캡슐화가 정상적으로 되지 않음.
@@ -17,6 +21,12 @@ public class Calculator {
 
     public void removeResult(){
         this.resultList.removeFirst();
+    }
+
+    public void inquiryResults(){
+        for(Double result: this.resultList){
+            System.out.println(result);
+        }
     }
 
     public Double calculate(double x, double y, char sign){
