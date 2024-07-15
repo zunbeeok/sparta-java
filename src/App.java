@@ -39,8 +39,15 @@ public class App {
             }
 
             System.out.println("결과: " + result);
-            list[index] = result;
-            index ++;
+            if (index== 10){
+                list[0] = result;
+                index = 0;
+            }else {
+                list[index] = result;
+                index ++;
+            }
+
+
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String answer = sc.next();
