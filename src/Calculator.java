@@ -6,6 +6,14 @@ import java.util.List;
 public class Calculator {
     private List<Double> resultList =new ArrayList<Double>();
 
+    public List<Double> getResultList() {
+        return resultList;
+    }
+
+    public void addResultList(Double result) {
+        this.resultList.add(result);
+    }
+
     public Double calculate(double x, double y, char sign){
         double result = 0;
         if(sign == '+'){
