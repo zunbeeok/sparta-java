@@ -1,3 +1,5 @@
+import exception.CustomException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -5,6 +7,7 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
+        Calculator cal = new Calculator();
 
         List<Double> resultList = new ArrayList<>();
 
@@ -19,6 +22,12 @@ public class App {
 
             System.out.println("사칙연산 기호를 입력하세요 : ");
             char sign = sc.next().charAt(0);
+
+            try{
+                result = cal.calculate(x,y,sign);
+            }catch (CustomException e){
+                System.out.println(e.getMessage());
+            }
 
             System.out.println("결과: " + result);
             resultList.add(result);
