@@ -7,11 +7,16 @@ public class Calculator {
     private List<Double> resultList =new ArrayList<Double>();
 
     public List<Double> getResultList() {
-        return resultList;
+        // return resultList; 기존 코드시 컬렉션이 변경되는 위험이 있어 캡슐화가 정상적으로 되지 않음.
+        return new ArrayList<>(resultList); // 깊은 복사를 통해 컬렉션을 캡슐화 시킨다.
     }
 
     public void addResultList(Double result) {
         this.resultList.add(result);
+    }
+
+    public void removeResult(){
+        this.resultList.removeFirst();
     }
 
     public Double calculate(double x, double y, char sign){
